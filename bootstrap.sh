@@ -95,20 +95,20 @@ cd $HOME/$ANSIBLE_PROJECT && ansible-galaxy install --force -r requirements.yml
 
 touch $HOME/$ANSIBLE_PROJECT/custom.yml
 
+custom_filled=$(awk -v RS="" '/username/&&/dns_nameservers/&&/root_host/{print FILENAME}' $HOME/$ANSIBLE_PROJECT/custom.yml)
+
+if [[ "$custom_filled" =~ "custom.yml" ]]; then
+  clear
+  echo "custom.yml already exists. Running the playbook..."
+  echo
+  echo "If you want to change something (e.g. username, domain name, etc.)"
+  echo "Please edit custom.yml or secret.yml manually, and then re-run this script"
+  echo
+  cd $HOME/$ANSIBLE_PROJECT && ansible-playbook --ask-vault-pass run.yml
+  exit 0
+fi
+
 echo "ansible_project: $ANSIBLE_PROJECT" >$HOME/$ANSIBLE_PROJECT/custom.yml
-
-# custom_filled=$(awk -v RS="" '/username/&&/dns_nameservers/&&/root_host/{print FILENAME}' $HOME/$ANSIBLE_PROJECT/custom.yml)
-
-# if [[ "$custom_filled" =~ "custom.yml" ]]; then
-#   clear
-#   echo "custom.yml already exists. Running the playbook..."
-#   echo
-#   echo "If you want to change something (e.g. username, domain name, etc.)"
-#   echo "Please edit custom.yml or secret.yml manually, and then re-run this script"
-#   echo
-#   cd $HOME/$ANSIBLE_PROJECT && ansible-playbook --ask-vault-pass run.yml
-#   exit 0
-# fi
 
 clear
 echo "Welcome to $ANSIBLE_PROJECT!"

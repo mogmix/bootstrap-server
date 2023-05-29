@@ -1,4 +1,8 @@
 ---
+- name: Set timezone
+  community.general.timezone:
+    name: {{ timezone }}
+
 - name: Check if locale exists
   ansible.builtin.shell:
     cmd: >-

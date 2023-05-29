@@ -5,6 +5,8 @@ all:
       ansible_connection: local
 
   vars:
+    timezone: Europe/Berlin
+
     username: mogmix
 
     # root_host: example.duckdns.org
