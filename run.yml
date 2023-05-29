@@ -1,0 +1,22 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Bootstrap server
+  hosts: all
+  become: true
+
+  vars_files:
+    - custom.yml
+    - secret.yml
+
+  roles:
+    - role: system
+      tags:
+        - system
+
+    - role: geerlingguy.docker
+      tags:
+        - docker
+
+    - role: ssh
+      tags:
+        - ssh
