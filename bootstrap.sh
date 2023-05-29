@@ -91,7 +91,7 @@ export PATH="$HOME/$ANSIBLE_PROJECT/.venv/bin:$PATH"
 .venv/bin/python3 -m pip install -r requirements.txt
 
 # Install the Galaxy requirements
-cd $HOME/$ANSIBLE_PROJECT && ansible-galaxy install --force -r requirements.ym
+cd $HOME/$ANSIBLE_PROJECT && ansible-galaxy install --force -r requirements.yml
 
 touch $HOME/$ANSIBLE_PROJECT/custom.yml
 
