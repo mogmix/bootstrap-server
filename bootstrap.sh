@@ -95,7 +95,7 @@ cd $HOME/$ANSIBLE_PROJECT && ansible-galaxy install --force -r requirements.yml
 
 touch $HOME/$ANSIBLE_PROJECT/custom.yml
 
-custom_filled=$(awk -v RS="" '/username/&&/dns_nameservers/&&/root_host/{print FILENAME}' $HOME/$ANSIBLE_PROJECT/custom.yml)
+custom_filled=$(awk -v RS="" '/username/{print FILENAME}' $HOME/$ANSIBLE_PROJECT/custom.yml)
 
 if [[ "$custom_filled" =~ "custom.yml" ]]; then
   clear
