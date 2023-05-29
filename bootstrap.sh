@@ -2,6 +2,9 @@
 # A bash script that prepares the OS
 # before running the Ansible playbook
 
+ANSIBLE_PROJECT="bootstrap-server"
+GIT_REPO="https://github.com/mogmix/bootstrap-server"
+
 # Discard stdin. Needed when running from an one-liner which includes a newline
 read -N 999999 -t 0.001
 
