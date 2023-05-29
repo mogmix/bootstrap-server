@@ -168,6 +168,7 @@ fi
 
 # Set secure permissions for the Vault file
 touch $HOME/$ANSIBLE_PROJECT/secret.yml
+echo "" >$HOME/$ANSIBLE_PROJECT/secret.yml
 chmod 600 $HOME/$ANSIBLE_PROJECT/secret.yml
 
 echo "user_password: \"${user_password}\"" >>$HOME/$ANSIBLE_PROJECT/secret.yml
